@@ -21,6 +21,8 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.http import HttpResponse
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -35,6 +37,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", lambda request: HttpResponse("<h1>Welcome to ALX Travel App</h1>")),
     # Swagger UI and JSON endpoints
     path(
         "swagger/",
